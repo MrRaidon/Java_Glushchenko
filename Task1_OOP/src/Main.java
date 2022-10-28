@@ -1,6 +1,8 @@
 import Task1.Matr;
 import Task1.MatrCalc;
 import Task2.Vector;
+import Task3.*;
+
 import java.util.*;
 public class Main {
 
@@ -83,7 +85,28 @@ public class Main {
         System.out.println("Разность векторов 1 и 2");
         vector1.VectorRazn(vector2).value();
     }
-    
+
+    public static void Task3() {
+        Box box = new Box();
+        box.setVolume(50);
+
+        Ball ball1 = new Ball();
+        ball1.setVolume(11);
+
+
+        System.out.println("\nОбъём коробки: " + box.getVolume());
+        boolean result = box.add(ball1);
+        System.out.println("Объект добавлен: " + result);
+        System.out.println("Объём коробки: " + box.getVolume());
+
+        SolidOfRevolution obj = new SolidOfRevolution();
+        obj.setVolume(435);
+        System.out.println("\nОбъём коробки: " + box.getVolume());
+        result = box.add(obj);
+        System.out.println("Объект добавлен: " + result);
+        System.out.println("Объём коробки: " + box.getVolume());
+    }
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         while (true) {
@@ -104,7 +127,7 @@ public class Main {
                     Task2();
                 }
                 case "3" -> {
-                    Task1();
+                    Task3();
                 }
                 case "4" -> {
                     Task1();
