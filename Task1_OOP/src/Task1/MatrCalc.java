@@ -47,7 +47,7 @@ public class MatrCalc {
         }
     }
 
-    public Matr difference() {
+    public Matr VectorRazn() {
         if ((Matr1.n != Matr2.n) || (Matr1.m != Matr2.m)) {
             System.out.println("Введите правльную размерность матриц");
             return null;
