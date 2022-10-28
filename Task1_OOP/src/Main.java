@@ -2,6 +2,7 @@ import Task1.Matr;
 import Task1.MatrCalc;
 import Task2.Vector;
 import Task3.*;
+import Task4.*;
 
 import java.util.*;
 public class Main {
@@ -107,6 +108,27 @@ public class Main {
         System.out.println("Объём коробки: " + box.getVolume());
     }
 
+    public static void Task4() {
+        Box_withoutAbstarct box = new Box_withoutAbstarct();
+        box.setVolume(50);
+
+        Ball_withoutAbstarct ball1 = new Ball_withoutAbstarct();
+        ball1.setVolume(11);
+
+
+        System.out.println("\nОбъём коробки: " + box.getVolume());
+        boolean result = box.add(ball1);
+        System.out.println("Объект добавлен: " + result);
+        System.out.println("Объём коробки: " + box.getVolume());
+
+        SolidOfRevolution_withoutAbstarct obj = new SolidOfRevolution_withoutAbstarct();
+        obj.setVolume(435);
+        System.out.println("\nОбъём коробки: " + box.getVolume());
+        result = box.add(obj);
+        System.out.println("Объект добавлен: " + result);
+        System.out.println("Объём коробки: " + box.getVolume());
+    }
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         while (true) {
@@ -130,7 +152,7 @@ public class Main {
                     Task3();
                 }
                 case "4" -> {
-                    Task1();
+                    Task4();
                 }
                 case "5" -> {
                     Task1();
