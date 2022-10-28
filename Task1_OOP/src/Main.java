@@ -3,7 +3,7 @@ import Task1.MatrCalc;
 import Task2.Vector;
 import Task3.*;
 import Task4.*;
-
+import Task5.Ret;
 import java.util.*;
 public class Main {
 
@@ -129,6 +129,14 @@ public class Main {
         System.out.println("Объём коробки: " + box.getVolume());
     }
 
+    public static void Task5() {
+        int[] values = {1, 2, 3};
+        int[] weight = {1, 2, 10};
+
+        Ret Ret = new Ret(values, weight);
+        int ReturnValue = Ret.getNumber();
+        System.out.println("Возвращенное значение: " + ReturnValue);
+    }
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         while (true) {
@@ -139,7 +147,7 @@ public class Main {
             System.out.println("3) Иерархия классов");
             System.out.println("4) Иерархия с абстрактными классами");
             System.out.println("5) Массивы");
-            System.out.println("8) Выход");
+            System.out.println("6) Выход");
             String input = in.nextLine();
             switch (input) {
                 case "1" -> {
@@ -155,9 +163,9 @@ public class Main {
                     Task4();
                 }
                 case "5" -> {
-                    Task1();
+                    Task5();
                 }
-                case "8" -> {
+                case "6" -> {
                     return;
                 }
             }
