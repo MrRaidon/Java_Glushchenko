@@ -16,9 +16,9 @@ public class Schedule {
     private int testId;
     private int groupId;
     private Integer duration;
-    private Date startDate;
+    private Date startDt;
     private Time startTime;
-    private Date endDate;
+    private Date endDt;
     private Time endTime;
     private Boolean active;
 

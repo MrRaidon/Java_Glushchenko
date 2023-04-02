@@ -18,7 +18,7 @@ public class User {
     @JsonIgnore
     private String login;
     @JsonIgnore
-    private String password;
+    private String passwordHash;
     @Nullable
     private Integer groupId;
     private Integer roleId;

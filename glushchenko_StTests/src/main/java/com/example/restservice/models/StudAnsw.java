@@ -4,14 +4,13 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
-@Table(name="test_list")
+@Table(name="student_answer")
 @Data
-public class MassinveTests {
+public class StudAnsw {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int rowId;
-    private String name;
-    private Integer subjectId;
-    private Integer teacherId;
-
+    private int testId;
+    private int userId;
+    private int answerId;
 }

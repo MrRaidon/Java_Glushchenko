@@ -1,7 +1,7 @@
 package com.example.restservice.controllers;
 
-import com.example.restservice.models.MassinveTests;
-import com.example.restservice.schemas.ResultsByStudents;
+import com.example.restservice.models.TestList;
+import com.example.restservice.schemas.ResultsFieldComposition;
 import com.example.restservice.services.TestListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,17 +19,17 @@ public class TestController {
 
 
     @GetMapping("/list")
-    public List<MassinveTests> allTests() {
+    public List<TestList> allTests() {
         return testListService.allTestLists();
     }
 
-    @GetMapping("/NextTest{student_id}")
-    public List<MassinveTests> getNextTestsForStudent(@PathVariable Integer student_id) {
+    @GetMapping("/NextTest/{student_id}")
+    public List<TestList> getNextTestsForStudent(@PathVariable Integer student_id) {
         return testListService.getTestsListByStudent(student_id);
 
     }
     @GetMapping("/results")
-    public List<ResultsByStudents> getResultsForStudents() {
+    public List<ResultsFieldComposition> getResultsForStudents() {
         return testListService.getResultsForStudents();
 
     }

@@ -2,7 +2,7 @@ package com.example.restservice.services;
 
 import com.example.restservice.models.*;
 import com.example.restservice.repository.*;
-import com.example.restservice.schemas.ResultsByStudents;
+import com.example.restservice.schemas.ResultsFieldComposition;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,37 +25,37 @@ public class TestListService {
     @Autowired
     AnswerRepository answerRepository;
 
-    public List<MassinveTests> allTestLists() {
+    public List<TestList> allTestLists() {
         return testListRepository.findAll();
     }
 
-    public List<MassinveTests> getTestsListByStudent(Integer student_id) {
+    public List<TestList> getTestsListByStudent(Integer student_id) {
         User user = userRepository.findById(student_id).get();
         List<Schedule> schedules = scheduleRepository.findAllByGroupId(user.getGroupId());
-        List<MassinveTests> tests = new ArrayList<>();
+        List<TestList> tests = new ArrayList<>();
         for (Schedule sc : schedules) {
-            MassinveTests t = testListRepository.findById(sc.getTestId()).get();
+            TestList t = testListRepository.findById(sc.getTestId()).get();
             tests.add(t);
         }
         return tests;
     }
 
-    public List<ResultsByStudents> getResultsForStudents() {
-        List<ResultsByStudents> results = new ArrayList<>();
+    public List<ResultsFieldComposition> getResultsForStudents() {
+        List<ResultsFieldComposition> results = new ArrayList<>();
         List<User> students = userRepository.findUsersByRoleId(1);
         for (User u : students) {
-            ResultsByStudents temp = new ResultsByStudents();
+            ResultsFieldComposition temp = new ResultsFieldComposition();
             temp.student = u;
-            temp.Points = new HashMap<>();
-            List<AnswerByStudent> answers = studAnswRepository.findAllByUserId(u.getRowId());
-            for (AnswerByStudent ans : answers) {
-                MassinveTests t = testListRepository.findTestListByRowId(ans.getTestId());
+            temp.BallsByTest = new HashMap<>();
+            List<StudAnsw> answers = studAnswRepository.findAllByUserId(u.getRowId());
+            for (StudAnsw ans : answers) {
+                TestList t = testListRepository.findTestListByRowId(ans.getTestId());
                 Answer a = answerRepository.findAnswerByRowId(ans.getAnswerId());
-                if (!temp.Points.containsKey(t)) {
-                    temp.Points.put(t, 0);
+                if (!temp.BallsByTest.containsKey(t)) {
+                    temp.BallsByTest.put(t, 0);
                 }
                 if (a.getCorrect()) {
-                    temp.Points.put(t, temp.Points.get(t) + 1);
+                    temp.BallsByTest.put(t, temp.BallsByTest.get(t) + 1);
                 }
             }
             results.add(temp);
