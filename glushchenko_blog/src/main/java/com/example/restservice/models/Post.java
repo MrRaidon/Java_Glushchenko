@@ -17,7 +17,7 @@ public class Post {
     private String body;
     private Date created;
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post_id")
     private List<Comment> comments;
 
 

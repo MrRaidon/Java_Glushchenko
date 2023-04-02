@@ -1,9 +1,9 @@
 package com.example.restservice.controllers;
 
-import com.example.blogapi.models.Comment;
-import com.example.blogapi.schemas.CommentSchema;
-import com.example.blogapi.services.CommentService;
-import com.example.blogapi.services.PostService;
+import com.example.restservice.models.Comment;
+import com.example.restservice.CommentFieldsComposition;
+import com.example.restservice.services.CommentService;
+import com.example.restservice.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,10 +26,10 @@ public class CommentController {
     }
 
     @PostMapping("")
-    public ResponseEntity<?> create(@RequestBody CommentSchema commentSchema) {
+    public ResponseEntity<?> create(@RequestBody CommentFieldsComposition commentFieldsComposition) {
         Comment comment = new Comment();
-        comment.setBody(commentSchema.body);
-        comment.setPost(postService.getPostById(commentSchema.post));
+        comment.setBody(commentFieldsComposition.body);
+        comment.setPost_id(postService.getPostById(commentFieldsComposition.post_id));
         commentService.save(comment);
         return new ResponseEntity<>(HttpStatus.OK);
     }

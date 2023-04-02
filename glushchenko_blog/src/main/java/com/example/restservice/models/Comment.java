@@ -14,7 +14,7 @@ public class Comment {
     private String body;
 
     @ManyToOne
-    @JoinColumn(name = "post")
+    @JoinColumn(name = "post_id")
     @JsonIgnore
-    private Post post;
+    private Post post_id;
 }

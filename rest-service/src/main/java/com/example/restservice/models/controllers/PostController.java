@@ -1,7 +1,7 @@
-package com.example.restservice.controllers;
+package com.example.restservice.models.controllers;
 
-import com.example.blogapi.models.Post;
-import com.example.blogapi.services.PostService;
+import com.example.blogapi.models.models.Post;
+import com.example.blogapi.models.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

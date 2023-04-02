@@ -1,7 +1,7 @@
 package com.example.restservice.services;
 
-import com.example.blogapi.models.Comment;
-import com.example.blogapi.repositories.CommentRepo;
+import com.example.restservice.models.Comment;
+import com.example.restservice.repositories.CommentRepo;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

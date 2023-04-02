@@ -1,9 +1,9 @@
-package com.example.restservice.controllers;
+package com.example.restservice.models.controllers;
 
-import com.example.blogapi.models.Comment;
-import com.example.blogapi.schemas.CommentSchema;
-import com.example.blogapi.services.CommentService;
-import com.example.blogapi.services.PostService;
+import com.example.blogapi.models.CommentSchema;
+import com.example.blogapi.models.models.Comment;
+import com.example.blogapi.models.services.CommentService;
+import com.example.blogapi.models.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
