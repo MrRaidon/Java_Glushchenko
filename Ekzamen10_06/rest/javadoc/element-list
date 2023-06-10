@@ -1,0 +1,5 @@
+com.example.rest
+com.example.rest.controllers
+com.example.rest.models
+com.example.rest.repositories
+com.example.rest.services
